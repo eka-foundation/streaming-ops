@@ -15,26 +15,9 @@ retcode = subprocess.call([
 ])
 assert(retcode == 0)
 
-# Generate thumbnail from high source quality mp4
-if  '_src_' in out_path:
-  thumb_path = os.path.join(thumb_dir,  os.path.basename(out_path) + '.png')
-  retcode = subprocess.call([
-      '/usr/bin/ffmpeg',
-      '-y',
-      '-ss', '00:05',
-      '-i', out_path,
-      '-frames', '1',
-      '-filter:v',
-      'scale=-1:187',
-      '-f', 'image2',
-      thumb_path
-    ])
-  assert(retcode==0)
-
-# Upload mp4 metadata and thumbnail to wordpress VOD page
-
 #  Remove original flv
 retcode = subprocess.call([
   '/bin/rm', '-rf', file_path
 ])
 assert(retcode==0)
+
