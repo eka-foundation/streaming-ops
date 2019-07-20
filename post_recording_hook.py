@@ -6,7 +6,6 @@ args = sys.argv[1:]
 
 file_path = args[0]
 out_path = args[1]
-thumb_dir=args[2]
 
 #  Transcode into mp4
 retcode = subprocess.call([
